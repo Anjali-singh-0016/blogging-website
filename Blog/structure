@@ -1,0 +1,68 @@
+/blog
+    ├── assets/
+    │     ├── styles.css
+    │     ├── logo.png
+    │     ├── dashboard.css
+    │     └── dashboard.js
+    ├── auth.php
+    ├── db_connection.php
+    ├── index.php
+    ├── login.php
+    ├── register.php
+    ├── dashboard.php
+    ├── views/
+    │     ├── view-blogs.php
+    │     ├── create-blog.php
+    │     ├── comments.php
+    │     └── profile.php
+    ├── api/
+    │     ├── fetch-blogs.php
+    │     ├── save-blog.php
+    │     ├── update-blog.php
+    │     ├── delete-blog.php
+    │     └── fetch-comments.php
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE blogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    status ENUM('published', 'draft') DEFAULT 'draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    blog_id INT NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (blog_id) REFERENCES blogs(id)
+);
+
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE activity (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    action_type ENUM('edit', 'comment', 'create') NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);

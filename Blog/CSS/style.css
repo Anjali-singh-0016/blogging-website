@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+/* Basic body and font styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+    position: absolute; /* Position header over hero section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Ensure the header content stays above the background */
+    padding: 0;
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Space around content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo .logo {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.header-logo .logo-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.header-btns a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f74008;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.header-btns a:hover {
+    background-color: #b30000;
+}
+
+
+
+/* Hero Section */
+/* Container for animated background */
+.background-container {
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    animation: slide-in 5s infinite ease-in-out; /* Animation for 10 seconds */
+}
+
+/* Define the keyframes for the smooth transition */
+@keyframes slide-in {
+    0% {
+        .header{
+            position: fixed;
+            opacity: 1;
+        }
+        transform: translateY(100%);
+        .hero{
+            opacity: 0.5;
+        }
+    }
+    20% {
+        transform: translateY(0);
+        .hero{
+            opacity: 0.8;
+        }
+    }
+    40%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        .header{
+            position: fixed;
+            opacity: 1;
+        }
+        transform: translateY(-100%);
+        .hero{
+            opacity: 0.5;
+        }
+    }
+}
+
+
+.hero {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    text-align: center;
+    height: 100vh; /* Hero section takes full viewport height */
+    z-index: 0; /* Keeps hero section below the header */
+}
+
+.hero-header{
+    margin-top: 9rem;
+}
+
+.hero-header h2 {
+    font-size: 3rem; /* Larger text size */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Optional: add text shadow for better visibility */
+    margin: 1rem;
+}
+
+.hero-header a{
+    text-decoration: none;
+    color: white;
+    background-color: #ff4400;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5); /* Optional: add box shadow */
+}
+
+.hero-header a:hover {
+    background-color: #b30000;
+}
+
+.logo{
+    margin-left: 1rem;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    height: 100%;
+    padding: 0 20rem;
+    margin: 0.875rem 0;
+    overflow: hidden;
+
+}
+
+.auth-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+}
+
+.auth-div section{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 85%;
+    width: 100%;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+
+.login h2{
+    text-align: center;
+    padding: 1rem;
+}
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #e64a19;
+}
+
+.google-btn {
+    background: #4285f4;
+}
+
+.google-btn:hover {
+    background: #357ae8;
+}
+
+.footer {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+}
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.notification.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.notification.error {
+    background-color: #F44336;
+    color: white;
+}
